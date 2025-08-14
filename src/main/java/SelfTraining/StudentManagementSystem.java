@@ -1,17 +1,20 @@
 package SelfTraining;
 import java.util.ArrayList;
 import java.util.Scanner;
+//student class(Encapsulation)
 class Students{
     private int rollno;
     private String name;
     private String grade;
     private static int totalStudent=0;
+    //constructor
     public Students(int rollno, String name, String grade ){
         this.rollno=rollno;
         this.name=name;
         this.grade=grade;
         totalStudent++;
     }
+    //Getter Setter Method
     public int getRollNo(){
         return rollno;
     }
@@ -24,13 +27,16 @@ class Students{
     public void setGrade(String grade){
         this.grade=grade;
     }
+    //static method
     public static int getTotalStudents(){
         return totalStudent;
     }
+    //display Student Details
     public void displayInfo(){
         System.out.println("Roll No: "+rollno+ ", Name: "+name+ ", Grade: "+grade);
     }
 }
+//main class
 public class StudentManagementSystem {
     private static ArrayList<Students> students = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);
@@ -58,6 +64,7 @@ public class StudentManagementSystem {
             }
         }while(choice !=5);
     }
+    //Add Student
     private static void addStudent(){
         System.out.println("Enter Roll No: ");
         int rollno=sc.nextInt();
@@ -69,6 +76,7 @@ public class StudentManagementSystem {
         students.add(new Students(rollno,name,grade));
         System.out.println("Students Successfully added! Total Students: "+Students.getTotalStudents());
     }
+    //view student
     private static void viewStudents(){
         if(students.isEmpty()){
             System.out.println("No Student Found!");
@@ -79,6 +87,7 @@ public class StudentManagementSystem {
             s.displayInfo();
         }
     }
+    //search student
     private static void searchStudent(){
         System.out.println("Enter rollno to search: ");
         int rollno=sc.nextInt();
@@ -90,6 +99,7 @@ public class StudentManagementSystem {
         }
         System.out.println("Student not found!");
     }
+    //delete student
     private static void deleteStudent(){
         System.out.println("Enter roll no to delete: ");
         int rollno=sc.nextInt();
