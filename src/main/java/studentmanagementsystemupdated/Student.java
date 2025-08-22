@@ -1,54 +1,45 @@
 package studentmanagementsystemupdated;
-
-class Student extends person {
+public class Student extends person {
     private String course;
     private String grade;
-    private String intrestedDomain;
+    private String interestedDomain;
+    private String favSubject;
+    private Teacher assignedTeacher;
 
-    public void setFav(String fav) {
-        this.fav = fav;
-    }
-
-    private String fav;
-
-    public String getFav() {
-        return fav;
-    }
-
-    public void setIntrestedDomain(String intrestedDomain) {
-        this.intrestedDomain = intrestedDomain;
-    }
-
-    public String getIntrestedDomain() {
-        return intrestedDomain;
-    }
-
-    public Student(int id, String name, String course, String grade, String fav, String intrestedDomain) {
+    public Student(int id, String name, String course, String grade,
+                   String interestedDomain, String favSubject) {
         super(id, name);
         this.course = course;
         this.grade = grade;
-        this.fav = fav;
-        this.intrestedDomain = intrestedDomain;
+        this.interestedDomain = interestedDomain;
+        this.favSubject = favSubject;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
+    public String getCourse() { return course; }
+    public void setCourse(String course) { this.course = course; }
 
-    public String getCourse() {
-        return course;
-    }
+    public String getGrade() { return grade; }
+    public void setGrade(String grade) { this.grade = grade; }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
+    public String getInterestedDomain() { return interestedDomain; }
+    public void setInterestedDomain(String interestedDomain) { this.interestedDomain = interestedDomain; }
 
-    public String getGrade() {
-        return grade;
-    }
+    public String getFavSubject() { return favSubject; }
+    public void setFavSubject(String favSubject) { this.favSubject = favSubject; }
 
+    public void assignTeacher(Teacher teacher) { this.assignedTeacher = teacher; }
+    public Teacher getAssignedTeacher() { return assignedTeacher; }
+
+    @Override
     public void displayInfo() {
-        System.out.println("Student -> ID: " + getId() + " Name: " + getName() + " Course: " + course + " Grade: " + grade +" Intrested Domain: " +intrestedDomain +" Favourite Subject: "+fav);
+        System.out.println("Student -> ID: " + getId() + " Name: " + getName() +
+                " Course: " + course + " Grade: " + grade +
+                " Interested Domain: " + interestedDomain +
+                " Favorite Subject: " + favSubject);
+        if (assignedTeacher != null) {
+            System.out.println("Assigned Teacher: " + assignedTeacher.getName());
+        } else {
+            System.out.println("Assigned Teacher: None");
+        }
     }
-
 }
